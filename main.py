@@ -61,6 +61,7 @@ Clue: <b>Kata benda</b>
         user_input=message.text
         chat_id = message.chat.id
         word = KATABENAR[random.randint(0, len(KATABENAR)-1)]
+        benar = KATABENAR
         scrambled = ''.join(random.sample(word, len(word)))
         msg = f"""
 Susun kata berikut: 
@@ -74,7 +75,7 @@ Clue: <b>Kata benda</b>
                 InlineKeyboardButton("Nyerah", callback_data="nyerah_button"),
             ],
         ]
-        if user_input in word:        
+        if user_input in benar:        
             await message.reply(f"Jawaban anda benar <a href=tg://openmessage?user_id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!!")
             await asyncio.sleep(1)
             await app.send_message(
