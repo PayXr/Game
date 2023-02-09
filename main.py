@@ -58,7 +58,6 @@ Clue: <b>Kata benda</b>
 
     @app.on_message()
     async def check_answer(_, message):
-        word = KATABENAR
         user_input=message.text
         chat_id = message.chat.id
         word = KATABENAR[random.randint(0, len(KATABENAR)-1)]
@@ -86,7 +85,7 @@ Clue: <b>Kata benda</b>
 
     @app.on_callback_query(filters.regex("^nyerah_button"))
     async def nyerah_message(_, calback_query):
-        await callback_querry.message.delete()
+        await callback_query.message.delete()
         word = KATABENAR[random.randint(0, len(KATABENAR)-1)]
         scrambled = ''.join(random.sample(word, len(word)))
         msg = f"""
