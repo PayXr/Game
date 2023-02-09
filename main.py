@@ -84,7 +84,7 @@ Clue: <b>Kata benda</b>
                 reply_markup=InlineKeyboardMarkup(button)
             )        
 
-    @bot.on_callback_query(filters.regex("^nyerah_button"))
+    @app.on_callback_query(filters.regex("^nyerah_button"))
     async def nyerah_message(_, calback_query):
         await callback_querry.message.delete()
         word = KATABENAR[random.randint(0, len(KATABENAR)-1)]
