@@ -56,8 +56,8 @@ Clue: <b>Kata benda</b>
             reply_markup=InlineKeyboardMarkup(button)
         )
 
-    @app.on_message()
-    async def check_answer(client, message):
+    @app.on_message(filters.group)
+    async def check_answer(_, message):
         user_input=message.text
         chat_id = message.chat.id
         word = KATABENAR[random.randint(0, len(KATABENAR)-1)]
