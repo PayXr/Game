@@ -57,7 +57,7 @@ Clue: <b>Kata benda</b>
         )
 
     @app.on_message(filters.group)
-    async def check_answer(_, message):
+    async def check_answer(_, message: Message):
         user_input=message.text
         chat_id = message.chat.id
         word = KATABENAR[random.randint(0, len(KATABENAR)-1)]
