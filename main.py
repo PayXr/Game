@@ -75,14 +75,14 @@ Clue: <b>Kata benda</b>
                 InlineKeyboardButton("Nyerah", callback_data="nyerah_button"),
             ],
         ]
-    if user_input in word:        
-        await message.reply(f"Jawaban anda benar <a href=tg://openmessage?user_id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!!")
-        await asyncio.sleep(1)
-        await app.send_message(
-            chat_id,
-            msg, 
-            reply_markup=InlineKeyboardMarkup(button)
-        )        
+        if user_input in word:        
+            await message.reply(f"Jawaban anda benar <a href=tg://openmessage?user_id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!!")
+            await asyncio.sleep(1)
+            await app.send_message(
+                chat_id,
+                msg, 
+                reply_markup=InlineKeyboardMarkup(button)
+            )        
 
     @bot.on_callback_query(filters.regex("^nyerah_button"))
     async def nyerah_message(_, calback_query):
